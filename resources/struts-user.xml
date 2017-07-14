@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="user" namespace="/" extends="default">
+		<action name="login" class="userController" method="login">
+			<result name="login">/WEB-INF/views/user/login.jsp</result>
+		</action>
+		
+		<action name="validate" class="userController" method="validate">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/admin</param>
+				<param name="actionName">student/index</param>
+			</result>
+			<result name="input">/WEB-INF/views/user/login.jsp</result>
+		</action>
+		
+		<action name="logout" class="userController" method="logout">
+			<result name="logout" type="redirect">/login</result>
+		</action>
+	</package>
+</struts>

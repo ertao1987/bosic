@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 与spring整合, 控制器（action）交由spring容器处理 -->
+ 	<constant name="struts.objectFactory" value="spring" />
+ 	<!-- 去除掉action扩展名 -->
+ 	<constant name="struts.action.extension" value="," />
+ 	<!-- 设置编码格式，解决中文乱码 -->
+ 	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 开发者模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- 禁止动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- 允许action名称中出现斜线“/” -->
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+	
+	<constant name="struts.configuration.xml.reload" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+	</package>
+	
+	<include file="struts-user.xml" />
+	
+	<include file="struts-admin.xml" />
+</struts>

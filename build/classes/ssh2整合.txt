@@ -1,0 +1,51 @@
+以spring为核心进行整合
+
+1、spring容器
+	spring容器用来管理所有类的生命周期
+	
+2、spring容器与hibernate整合
+	0）扫描包，注册类（repository，service，controller）
+	1）hibernate包括2部分内容
+		1）配置文件
+		2）映射文件（注解）
+	2）spring整合的内容
+		1）datasource----数据源，带连接池
+			dbcp、c3p0、druid，
+			注意，配置destroy-method="close"
+		2）配置sessionFactory
+			（1）配置数据源datasource
+			（2）hibernate属性
+			（3）配置扫描实体类所在包
+		3）配置事务管理器（注解驱动方式）
+3、spring与struts2整合
+	1）所需jar包
+		struts2-spring-plugin-*.jar
+	2）struts.xml
+		（1）<constant name="struts.objectFactory" value="spring" />
+		（2）action的class写成spring中bean的id
+		（3）所有的controller都加上@Scope("prototype")注解
+	---------------------------------------------------------------
+		spring mvc的controller是无状态的，线程安全的，是单例模式
+		struts2的action是有状态，线程不安全，要使用实例模式
+4、web.xml
+	1）配置spring容器
+	2）struts2的过滤器
+5、功能制作（MVC----struts2）
+	1、登录
+		（1）struts-user.xml
+		（2）控制器（模型）
+		（3）视图（jsp）
+	2、学生管理
+		（1）struts-admin.xml
+		（2）控制器（模型）
+		（3）视图（jsp）
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
